@@ -20,7 +20,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import br.com.restapi.api.domain.User;
 import br.com.restapi.api.domain.dto.UserDto;
-import br.com.restapi.api.exceptions.DataIntegratyViolationException;
+import br.com.restapi.api.exceptions.DataIntegrityViolationException;
 import br.com.restapi.api.exceptions.ObjectNotFoundException;
 import br.com.restapi.api.repositories.UserRepository;
 
@@ -34,6 +34,7 @@ public class UserServiceImplTest {
 	private static final String NAME = "Caio";
 
 	private static final int ID = 1;
+	
 
 	@InjectMocks
 	private UserServiceImpl service;
@@ -93,7 +94,7 @@ public class UserServiceImplTest {
 			optionalUser.get().setId(2);
 			service.create(userDTO);
 		}catch(Exception ex) {
-			Assertions.assertEquals(DataIntegratyViolationException.class, ex.getClass());
+			Assertions.assertEquals(DataIntegrityViolationException.class, ex.getClass());
 		}
 		
 	
@@ -127,7 +128,7 @@ public class UserServiceImplTest {
 			optionalUser.get().setId(2);
 			service.create(userDTO);
 		}catch(Exception ex) {
-			Assertions.assertEquals(DataIntegratyViolationException.class, ex.getClass());
+			Assertions.assertEquals(DataIntegrityViolationException.class, ex.getClass());
 		}
 		
 	
